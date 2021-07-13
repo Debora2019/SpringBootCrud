@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringcourseApplication<springcourse>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "pt.com.springboot.springcourse.SpringcourseApplication",
+            "projectName": "springcourse",
+            "args": ""
+        }
+    ]
+}
