@@ -9,6 +9,6 @@ import pt.com.springboot.springcourse.model.user;
 
 @Repository
 public interface UserRepository extends JpaRepository <user, Long >{
-    @Query(value= "select u from user u where u.name like %?1%")
+    @Query(value= "select u from user u where  upper(trim(u.name)) like %?1%")
     List<user> searchByName(String name);
 }

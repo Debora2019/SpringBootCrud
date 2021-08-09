@@ -83,11 +83,10 @@ public class controller {
         return new ResponseEntity<user>(userA, HttpStatus.OK);
 }
 
-@GetMapping(value = "searchByName")
+    @GetMapping(value = "searchByName")
     @ResponseBody
     public ResponseEntity<List<user>> searchByName(@RequestParam(name = "name") String name){
-       List<user> userA = userRepository.searchByName(name);
+       List<user> userA = userRepository.searchByName(name.trim().toUpperCase());
         return new ResponseEntity<List<user>>(userA, HttpStatus.OK);
 }
-
 }
