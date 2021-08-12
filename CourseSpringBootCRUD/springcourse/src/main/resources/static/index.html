@@ -59,6 +59,8 @@ html{
               <button type="button" class="btn btn-outline-success" onclick="searchUser()">Search</button>
             </form>
 
+
+            <div style="height:300px; overflow: scroll;"> <!-- colocar o scroll  -->
             <table class="table" id="tableResults">
               <thead>
                 <tr>
@@ -71,6 +73,7 @@ html{
               <tbody>
               </tbody>
             </table>
+          </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -85,10 +88,12 @@ html{
 
       function DeleteScreen(){
         var id = $('#id').val();
-        deleteUser(id);
-        document.getElementById('formUser').reset()//limpar da tabela
+
+        if(id != null && id.trim() != ''){ //validacao para deletar apenas se for informado um id
+           deleteUser(id);
+           document.getElementById('formUser').reset()//limpar da tabela
+        }  
       }
-      
 
       function deleteUser(id){
         if(confirm("Are you sure you want to delete")){ // so vai apagar se a resposta for sim.
@@ -151,6 +156,18 @@ html{
       var id = $("#id").val();
       var name = $("#name").val();
       var age = $("#age").val();
+
+      if(name == null || name != null && name.trim() == ''){
+        $("#name").focus(); // .focus() --> realça a informaçao relevante. css
+        alert("Please enter a name.");
+        return;
+      }
+
+      if(age == null || age != null && age.trim() == ''){
+        $("#age").focus();
+        alert("Please enter a age.");
+        return;
+      }
 
       $.ajax({
         method: "POST",
